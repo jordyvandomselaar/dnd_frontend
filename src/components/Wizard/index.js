@@ -1,17 +1,23 @@
 import React from "react"
 import {Paper} from "material-ui"
 import {Route} from "react-router-dom"
-import BasicInformation from "./pages/BasicInformation"
-import PhysicalInformation from "./pages/PhysicalInformation"
-import Stats from "./pages/Stats"
+import BasicInformation from "./pages/BasicInformation/index"
+import PhysicalInformation from "./pages/PhysicalInformation/index"
+import Stats from "./pages/Stats/index"
+import styled from "styled-components"
+
+const StyledPaper = styled(Paper)`
+  padding: 10px;
+`
 
 const Wizard = ({match, saveData, characterData}) => {
-    const getUrl = url => `${match.url}/${url}`
+    const getUrl = url => !!url ? `${match.url}/${url}` : match.url
 
     return (
-        <Paper>
+        <StyledPaper>
             <Route
-                path={getUrl("basic-information")}
+                exact
+                path={getUrl("")}
                 render={props => BasicInformation(
                     {
                         ...props,
@@ -23,18 +29,20 @@ const Wizard = ({match, saveData, characterData}) => {
             />
 
             <Route
+                exact
                 path={getUrl("physical-information")}
                 render={props => PhysicalInformation(
                     {
                         ...props,
                         nextUrl: getUrl("stats"),
-                        previousUrl: getUrl("basic-information"),
+                        previousUrl: getUrl(""),
                         onChange: saveData,
                         characterData,
                     })}
             />
 
             <Route
+                exact
                 path={getUrl("stats")}
                 render={props => Stats(
                     {
@@ -46,7 +54,7 @@ const Wizard = ({match, saveData, characterData}) => {
                         characterData,
                     })}
             />
-        </Paper>
+        </StyledPaper>
     )
 }
 
