@@ -6,9 +6,9 @@ import {Provider} from "react-redux"
 import dndApp from "../../redux/reducers"
 import {applyMiddleware, createStore} from "redux"
 import {composeWithDevTools} from "redux-devtools-extension"
-import {persistToLocalStorage} from "../../redux/middleware"
 import {load} from "../../redux/persistence/localstorage"
 import Main from "../Layouts/Main/Main"
+import thunkMiddleware from "redux-thunk"
 
 const routeComponents = (() => {
     let routeComponents = []
@@ -25,7 +25,10 @@ const routeComponents = (() => {
 const persistedState = load()
 
 const store = createStore(dndApp, persistedState, composeWithDevTools(
-    applyMiddleware(persistToLocalStorage),
+    applyMiddleware(
+        // persistToLocalStorage,
+        thunkMiddleware,
+    ),
 ))
 
 const App = () => (

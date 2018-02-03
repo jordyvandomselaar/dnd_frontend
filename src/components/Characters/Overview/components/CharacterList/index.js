@@ -1,19 +1,29 @@
 import {connect} from "react-redux"
-import CardGrid from "../../../../CardGrid/index"
+import CardGrid from "../../../../CharacterGrid/index"
+import {loadCharacters} from "../../../../../redux/actions"
+import {Component} from "react"
 
 const mapStateToProps = state => {
-    const items = state.characters.map(character => (
-        {
-            title: character.name,
-            image: character.image,
-        }
-    ))
+    const characters = state.characters.characters
 
     return {
-        items,
+        characters,
+    }
+
+}
+
+class CharacterList extends Component {
+    componentDidMount() {
+        const {dispatch} = this.props
+
+        dispatch(loadCharacters())
+    }
+
+    render() {
+        const {characters} = this.props
+
+        return CardGrid({characters})
     }
 }
 
-const CharacterList = connect(mapStateToProps)(CardGrid)
-
-export default CharacterList
+export default connect(mapStateToProps)(CharacterList)

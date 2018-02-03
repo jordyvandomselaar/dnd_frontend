@@ -10,9 +10,7 @@ const initialState = {}
  * @param value
  * @returns {{}}
  */
-const updateValue = (state, {field, value}) => {
-    return updateObject(state, {[field]: value})
-}
+const updateValue = (state, {field, value}) => updateObject(state, {[field]: value})
 
 const wizardReducer = createReducer(initialState, {
     [WIZARD_UPDATE_VALUE]: updateValue,

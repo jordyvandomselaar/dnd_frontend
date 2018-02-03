@@ -1,5 +1,8 @@
-const updateObject = (oldObject, newValues) => {
-    return {...oldObject, ...newValues}
-}
+/**
+ * @param oldObject
+ * @param newValues
+ * @returns {{}}
+ */
+const updateObject = (oldObject, newValues) => ({...oldObject, ...newValues})
 
 export default updateObject
