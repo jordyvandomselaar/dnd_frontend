@@ -23,10 +23,24 @@ const routes = {
     },
 }
 
+/**
+ * Parse routes.
+ *
+ * @param {string} route
+ * @param {*[]} parameters
+ */
 export const route = (route, parameters = []) => {
     let path = route.path
 
-    parameters.forEach(parameter => path = path.replace(/:.+?(\/|$)/, `${parameter}$1`))
+    /**
+     * Looks for any parts starting with a double colon; /foo/:bar
+     *
+     * @type {RegExp}
+     */
+    const regex = /:.+?(\/|$)/
+
+    // Replace any found parts with provided parameters.
+    parameters.forEach(parameter => path = path.replace(regex, `${parameter}$1`))
 
     return path
 }

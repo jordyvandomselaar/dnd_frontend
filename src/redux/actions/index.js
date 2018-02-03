@@ -5,6 +5,7 @@ export const RECEIVE_CHARACTERS = "RECEIVE_CHARARACTERS"
 
 /**
  * Set a new value in the character wizard.
+ *
  * @param field
  * @param value
  * @returns {{type: *}}
@@ -13,13 +14,15 @@ export const wizardUpdateValue = (field, value) => createAction(WIZARD_UPDATE_VA
 
 /**
  * Set characters in state.
- * @param characters
+ *
+ * @param {Object[]} characters
  * @returns {{type: *}}
  */
 export const receiveCharacters = (characters) => createAction(RECEIVE_CHARACTERS, {characters})
 
 /**
  * Fetch characters from api and set them in state.
+ *
  * @returns {function(*)}
  */
 export const loadCharacters = () => async dispatch => {

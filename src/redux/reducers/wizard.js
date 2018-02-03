@@ -5,9 +5,12 @@ import updateObject from "../utils/updateObject"
 const initialState = {}
 
 /**
+ * Update value in character wizard state.
  *
- * @param state
- * @param value
+ * @param {Object} state
+ * @param {Object} data
+ * @param {*} data.field
+ * @param {*} data.value
  * @returns {{}}
  */
 const updateValue = (state, {field, value}) => updateObject(state, {[field]: value})

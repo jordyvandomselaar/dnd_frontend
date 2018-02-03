@@ -1,3 +1,8 @@
+/**
+ * Load state from localstorage.
+ *
+ * @returns {Object}
+ */
 export const load = () => {
     try {
         const serializedState = localStorage.getItem("state")
@@ -10,6 +15,11 @@ export const load = () => {
     }
 }
 
+/**
+ * Save state to localstorage.
+ *
+ * @param {Object} state
+ */
 export const save = state => {
     try {
         localStorage.setItem("state", JSON.stringify(state))

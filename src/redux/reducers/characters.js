@@ -7,6 +7,14 @@ const initialState = {
 }
 
 
+/**
+ * Save characters to state.
+ *
+ * @param {Object} state
+ * @param {Object} action
+ * @param {Object[]} action.characters
+ * @returns {{}}
+ */
 const receiveCharacters = (state, {characters}) => updateObject(state, {characters})
 
 const CharactersReducer = createReducer(initialState, {

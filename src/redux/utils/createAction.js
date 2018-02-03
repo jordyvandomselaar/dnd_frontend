@@ -1,6 +1,6 @@
 /**
- * @param type
- * @param data
+ * @param {string} type
+ * @param {Object} data
  * @returns {{type: *}}
  */
 export const createAction = (type, data) => {
