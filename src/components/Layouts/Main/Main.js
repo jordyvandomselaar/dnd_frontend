@@ -23,6 +23,7 @@ const Main = ({children, classes}) => (
     <Fragment>
         <Helmet>
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+            <title>Dungeons and Dragons</title>
         </Helmet>
 
         <Drawer classes={{paper: classes.paper}} type="permanent">

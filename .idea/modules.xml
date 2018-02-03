@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/dungeons_and_dragons.iml" filepath="$PROJECT_DIR$/.idea/dungeons_and_dragons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dungeons_and_dragons.iml" filepath="$PROJECT_DIR$/dungeons_and_dragons.iml" />
+      <module fileurl="file://$USER_HOME$/go/src/github.com/jordyvandomselaar/dungeons_and_dragons_backend_go/dungeons_and_dragons_backend_go.iml" filepath="$USER_HOME$/go/src/github.com/jordyvandomselaar/dungeons_and_dragons_backend_go/dungeons_and_dragons_backend_go.iml" />
     </modules>
   </component>
 </project>

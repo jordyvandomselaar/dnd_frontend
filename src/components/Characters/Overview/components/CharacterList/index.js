@@ -1,4 +1,3 @@
-import Description from "./Description/index"
 import {connect} from "react-redux"
 import CardGrid from "../../../../CardGrid/index"
 
@@ -7,7 +6,6 @@ const mapStateToProps = state => {
         {
             title: character.name,
             image: character.image,
-            children: Description({description: character.description}),
         }
     ))
 
