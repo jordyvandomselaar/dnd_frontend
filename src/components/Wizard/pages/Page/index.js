@@ -5,6 +5,8 @@ const Page = ({title, children, nextUrl, history, nextAction, nextIcon, previous
     nextAction = nextAction !== undefined ? nextAction : () => history.push(nextUrl)
     nextIcon = nextIcon !== undefined ? nextIcon : "navigate_next"
 
+    const previousAction = () => history.push(previousUrl)
+
     return (
         <Fragment>
             <Typography component="h2" type="headline">{title}</Typography>
@@ -12,7 +14,7 @@ const Page = ({title, children, nextUrl, history, nextAction, nextIcon, previous
             {children}
 
             {previousUrl &&
-            <Button fab aria-label="previous" color="primary" onClick={() => history.push(previousUrl)}>
+            <Button fab aria-label="previous" color="primary" onClick={previousAction}>
                 <Icon>navigate_before</Icon>
             </Button>
             }

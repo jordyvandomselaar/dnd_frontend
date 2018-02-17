@@ -10,47 +10,43 @@ const StyledPaper = styled(Paper)`
   padding: 10px;
 `
 
-const Wizard = ({match, saveData, characterData}) => {
-    const getUrl = url => !!url ? `${match.url}/${url}` : match.url
+const baseUrl = "/characters/wizard"
+
+const pages = [
+    {
+        url: baseUrl,
+        component: BasicInformation,
+    },
+    {
+        url: `${baseUrl}/physical-information`,
+        component: PhysicalInformation,
+    },
+    {
+        url: `${baseUrl}/stats`,
+        component: Stats,
+        nextAction: () => console.log("Done!"),
+        nextIcon: "send",
+    },
+]
+
+const getNextUrl = index => pages[++index] ? pages[index].url : undefined
+const getPreviousUrl = index => pages[--index] ? pages[index].url : undefined
+
+const Wizard = ({match, saveData, characterData, nextAction, nextIcon}) => {
+    const routeComponents = pages.map(({url, component, nextUrl, nextIcon}, i) =>
+        <Route exact path={url} key={i} render={props => component({
+            ...props,
+            onChange: saveData,
+            nextAction,
+            nextUrl: getNextUrl(i),
+            nextIcon,
+            previousUrl: getPreviousUrl(i),
+            characterData,
+        })}></Route>)
 
     return (
         <StyledPaper>
-            <Route
-                exact
-                path={getUrl("")}
-                render={props => BasicInformation(
-                    {
-                        ...props,
-                        onChange: saveData,
-                        characterData,
-                    },
-                )}
-            />
-
-            <Route
-                exact
-                path={getUrl("physical-information")}
-                render={props => PhysicalInformation(
-                    {
-                        ...props,
-                        previousUrl: getUrl(""),
-                        onChange: saveData,
-                        characterData,
-                    })}
-            />
-
-            <Route
-                exact
-                path={getUrl("stats")}
-                render={props => Stats(
-                    {
-                        ...props,
-                        nextIcon: "send",
-                        previousUrl: getUrl("physical-information"),
-                        onChange: saveData,
-                        characterData,
-                    })}
-            />
+            {routeComponents}
         </StyledPaper>
     )
 }

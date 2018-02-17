@@ -2,12 +2,15 @@ import Wizard from "../Wizard"
 import {connect} from "react-redux"
 import {wizardUpdateValue} from "../../redux/actions"
 
-const mapStateToProps = state => ({
-    characterData: state.wizard.data,
+const mapStateToProps = ({wizard}) => ({
+    characterData: wizard.data,
+    nextUrl: wizard.nextUrl,
 })
 
 const mapDispatchToProps = dispatch => ({
-    saveData: (field, value) => dispatch(wizardUpdateValue(field, value)),
+    saveData: (field, value) => {
+        dispatch(wizardUpdateValue(field, value))
+    },
 })
 
 const PersistentWizard = connect(
