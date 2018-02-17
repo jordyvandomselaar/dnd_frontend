@@ -19,7 +19,7 @@ const initialState = {
 const updateValue = (state, {field, value}) => {
     const data = updateObject(state.data, {[field]: value})
 
-    state.data = data
+    state = {...state, data: data}
 
     return state
 }

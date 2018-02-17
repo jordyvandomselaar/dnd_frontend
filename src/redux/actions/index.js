@@ -1,7 +1,7 @@
 import createAction from "../utils/createAction"
 import api from "../../config/api"
 
-export const WIZARD_UPDATE_VALUE = "UPDATE_VALUE"
+export const WIZARD_UPDATE_VALUE = "WIZARD_UPDATE_VALUE"
 export const RECEIVE_CHARACTERS = "RECEIVE_CHARARACTERS"
 
 /**
