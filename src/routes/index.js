@@ -13,10 +13,6 @@ const routes = {
         component: Overview,
         exact: true,
     },
-    characters_show: {
-        path: "/characters/:id",
-        component: "<p>Hi!</p>",
-    },
     wizard_index: {
         path: "/characters/wizard",
         component: PersistentWizard,

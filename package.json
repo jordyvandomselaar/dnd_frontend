@@ -17,7 +17,7 @@
     "styled-components": "^2.4.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start & json-server --port 8000 --watch mock-backend/db.json",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

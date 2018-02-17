@@ -1,4 +1,5 @@
 import createAction from "../utils/createAction"
+import api from "../../config/api"
 
 export const WIZARD_UPDATE_VALUE = "UPDATE_VALUE"
 export const RECEIVE_CHARACTERS = "RECEIVE_CHARARACTERS"
@@ -26,7 +27,7 @@ export const receiveCharacters = (characters) => createAction(RECEIVE_CHARACTERS
  * @returns {function(*)}
  */
 export const loadCharacters = () => async dispatch => {
-    let characters = await fetch("http://localhost:8000/characters").then(response => response.json())
+    let characters = await fetch(`${api.url}/characters`).then(response => response.json())
 
     characters = characters.map(character => {
         if (!character.image) {

@@ -21,7 +21,6 @@ const Wizard = ({match, saveData, characterData}) => {
                 render={props => BasicInformation(
                     {
                         ...props,
-                        nextUrl: getUrl("physical-information"),
                         onChange: saveData,
                         characterData,
                     },
@@ -34,7 +33,6 @@ const Wizard = ({match, saveData, characterData}) => {
                 render={props => PhysicalInformation(
                     {
                         ...props,
-                        nextUrl: getUrl("stats"),
                         previousUrl: getUrl(""),
                         onChange: saveData,
                         characterData,
@@ -48,7 +46,6 @@ const Wizard = ({match, saveData, characterData}) => {
                     {
                         ...props,
                         nextIcon: "send",
-                        nextAction: () => console.log("Done!"),
                         previousUrl: getUrl("physical-information"),
                         onChange: saveData,
                         characterData,

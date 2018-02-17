@@ -3,7 +3,7 @@ import {connect} from "react-redux"
 import {wizardUpdateValue} from "../../redux/actions"
 
 const mapStateToProps = state => ({
-    characterData: state.wizard,
+    characterData: state.wizard.data,
 })
 
 const mapDispatchToProps = dispatch => ({
