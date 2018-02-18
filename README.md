@@ -5,6 +5,8 @@
 ## Table Of Contents
 
 - [Running this bad boy.](#running-this-bad-boy)
+- [Backend](#backend)
+  - [Endpoints](#endpoints)
 - [Contributing](#contributing)
 - [Tech in here](#tech-in-here)
 
