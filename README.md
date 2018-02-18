@@ -16,6 +16,41 @@
 4. …
 5. Profit!
 
+## Backend
+
+As this is only the front-end this app requires an api to interface with. (duh)
+
+### Endpoints
+
+ **GET /characters**
+
+response:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Gentoo"
+  },
+  {
+    "id": 2,
+    "name": "Jimmy 2 feet"
+  }
+]
+```
+
+
+
+**POST /characters**
+
+payload:
+
+```json
+{
+  "name": "Gentoo"
+}
+```
+
 ## Contributing
 
 Feel free to create issues with feature requests or if you find terrible code. You can also send in PR's, just make sure there's an issue explaining what you're doing.
