@@ -3,7 +3,6 @@ import {WIZARD_UPDATE_VALUE} from "../actions"
 import updateObject from "../utils/updateObject"
 
 const initialState = {
-    activeStep: 1,
     data: {},
 }
 

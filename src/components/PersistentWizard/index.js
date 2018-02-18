@@ -4,8 +4,6 @@ import {wizardUpdateValue} from "../../redux/actions"
 
 const mapStateToProps = ({wizard}) => ({
     characterData: wizard.data,
-    nextUrl: wizard.nextUrl,
-    activeStep: wizard.activeStep,
 })
 
 const mapDispatchToProps = dispatch => ({

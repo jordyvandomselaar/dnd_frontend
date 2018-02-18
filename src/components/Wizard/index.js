@@ -45,6 +45,7 @@ const Wizard = (wizardProps) => {
                 nextAction,
                 nextUrl: getNextUrl(i),
                 previousUrl: getPreviousUrl(i),
+                activeStep: i,
             })}
         />)
 
