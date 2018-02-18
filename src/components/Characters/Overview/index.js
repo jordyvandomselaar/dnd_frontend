@@ -1,15 +1,14 @@
 import React from "react"
 import CharacterList from "./components/CharacterList"
-import styled from "styled-components"
 import AddButton from "./components/AddButton"
-
-const Container = styled.div`
-  padding: 10px;
-`
+import Container from "./components/Container"
+import CharacterListWrapper from "./components/CharacterListWrapper"
 
 const Overview = () => (
     <Container>
-        <CharacterList/>
+        <CharacterListWrapper>
+            <CharacterList/>
+        </CharacterListWrapper>
 
         <AddButton></AddButton>
     </Container>

@@ -6,9 +6,8 @@ import {withRouter} from "react-router-dom"
 import routes from "../../../../../routes"
 
 const AddButtonContainer = styled.div`
-  position: fixed;
-  right: 10px;
-  bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
 `
 
 const AddButton = ({history}) => (
