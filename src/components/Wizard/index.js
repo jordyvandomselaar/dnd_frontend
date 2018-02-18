@@ -33,14 +33,20 @@ const getNextUrl = index => pages[++index] ? pages[index].url : undefined
 const getPreviousUrl = index => pages[--index] ? pages[index].url : undefined
 
 const Wizard = (wizardProps) => {
-    const routeComponents = pages.map(({url, component, nextIcon}, i) =>
-        <Route exact path={url} key={i} render={props => component({
-            ...props,
-            ...wizardProps,
-            nextUrl: getNextUrl(i),
-            nextIcon,
-            previousUrl: getPreviousUrl(i),
-        })}></Route>)
+    const routeComponents = pages.map(({url, component, nextIcon, nextAction}, i) =>
+        <Route
+            exact
+            path={url}
+            key={i}
+            render={props => component({
+                ...props,
+                ...wizardProps,
+                nextIcon,
+                nextAction,
+                nextUrl: getNextUrl(i),
+                previousUrl: getPreviousUrl(i),
+            })}
+        />)
 
     return (
         <StyledPaper>
