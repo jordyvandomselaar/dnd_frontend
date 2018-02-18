@@ -1,4 +1,3 @@
-import React from "react"
 import styled from "styled-components"
 
 const Wrapper = styled.div`
@@ -10,6 +9,10 @@ const Wrapper = styled.div`
   top: 0;
   bottom: 0;
   flex-direction: column;
+  
+  .opaque {
+    visibility: hidden;
+  }
 `
 
 export default Wrapper

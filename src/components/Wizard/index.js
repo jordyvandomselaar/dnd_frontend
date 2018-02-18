@@ -32,16 +32,14 @@ const pages = [
 const getNextUrl = index => pages[++index] ? pages[index].url : undefined
 const getPreviousUrl = index => pages[--index] ? pages[index].url : undefined
 
-const Wizard = ({match, saveData, characterData, nextAction, nextIcon}) => {
-    const routeComponents = pages.map(({url, component, nextUrl, nextIcon}, i) =>
+const Wizard = (wizardProps) => {
+    const routeComponents = pages.map(({url, component, nextIcon}, i) =>
         <Route exact path={url} key={i} render={props => component({
             ...props,
-            onChange: saveData,
-            nextAction,
+            ...wizardProps,
             nextUrl: getNextUrl(i),
             nextIcon,
             previousUrl: getPreviousUrl(i),
-            characterData,
         })}></Route>)
 
     return (

@@ -1,11 +1,14 @@
 import React, {Fragment} from "react"
-import {Button, Icon, Typography} from "material-ui"
+import {Typography} from "material-ui"
+import Navigation from "./components/Navigation"
 
-const Page = ({title, children, nextUrl, history, nextAction, nextIcon, previousUrl}) => {
+const Page = props => {
+    let {title, children, nextUrl, history, nextAction, nextIcon, previousUrl, activeStep} = props
+
     nextAction = nextAction !== undefined ? nextAction : () => history.push(nextUrl)
     nextIcon = nextIcon !== undefined ? nextIcon : "navigate_next"
 
-    const previousAction = () => history.push(previousUrl)
+    const previousAction = previousUrl ? () => history.push(previousUrl) : undefined
 
     return (
         <Fragment>
@@ -13,15 +16,12 @@ const Page = ({title, children, nextUrl, history, nextAction, nextIcon, previous
 
             {children}
 
-            {previousUrl &&
-            <Button fab aria-label="previous" color="primary" onClick={previousAction}>
-                <Icon>navigate_before</Icon>
-            </Button>
-            }
-
-            <Button fab aria-label="next" color="primary" onClick={nextAction}>
-                <Icon>{nextIcon}</Icon>
-            </Button>
+            <Navigation
+                {...props}
+                previousAction={previousAction}
+                nextAction={nextAction}
+                nextIcon={nextIcon}
+            />
         </Fragment>
     )
 }

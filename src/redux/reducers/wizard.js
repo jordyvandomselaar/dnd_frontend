@@ -5,7 +5,7 @@ import updateObject from "../utils/updateObject"
 const initialState = {
     nextUrl: "/characters/wizard/physical-information",
     previousUrl: "",
-    pages: [],
+    activeStep: 1,
     data: {},
 }
 
